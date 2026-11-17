@@ -19,6 +19,11 @@ pipeline {
             }
         }
     }
+    stage('Smoke Test') {
+            steps {
+                bat '%JMETER_HOME%\\bin\\jmeter.bat -n -f -t perf/duration.jmx -l reports/duration.jtl' 
+            }
+        }
     post {
         always {
             archiveArtifacts artifacts: 'reports/, html-report/', allowEmptyArchive: true
