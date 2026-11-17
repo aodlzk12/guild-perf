@@ -19,9 +19,10 @@ pipeline {
             }
         }
     }
-    stage('duration Test') {
+    stage('Response Time Test') {
             steps {
                 bat '%JMETER_HOME%\\bin\\jmeter.bat -n -t perf/duration.jmx -l reports/duration.jtl' 
+                perfReport sourceDataFiles: 'reports/duration.jtl'
             }
         }
     post {
