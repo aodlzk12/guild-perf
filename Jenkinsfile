@@ -19,7 +19,7 @@ pipeline {
             }
         }
     }
-    stage('Smoke Test') {
+    stage('duration Test') {
             steps {
                 bat '%JMETER_HOME%\\bin\\jmeter.bat -n -t perf/duration.jmx -l reports/duration.jtl' 
             }
